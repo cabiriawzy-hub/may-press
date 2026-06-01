@@ -150,12 +150,6 @@
     position: absolute; inset: 0; width: 100%; height: 100%;
     object-fit: cover; object-position: center; z-index: 1;
   }
-  .hero .hero-img .lbl {
-    position: absolute; left: 18px; bottom: 16px; z-index: 2;
-    font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 10px;
-    letter-spacing: 0.08em; color: #fff; padding: 5px 9px;
-    background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.18);
-  }
 
   /* ---------- Sections ---------- */
   section.feed { padding: 72px 40px 56px; max-width: 1500px; margin: 0 auto; }
@@ -216,12 +210,6 @@
   .ph .ph-img {
     position: absolute; inset: 0; width: 100%; height: 100%;
     object-fit: cover; object-position: center; z-index: 1;
-  }
-  .ph .lbl {
-    position: absolute; left: 14px; bottom: 12px; z-index: 2;
-    font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 10px;
-    letter-spacing: 0.08em; padding: 4px 8px;
-    background: rgba(0,0,0,0.42); border: 1px solid rgba(255,255,255,0.18);
   }
 
   /* card grid */
@@ -664,10 +652,10 @@
   /* ---------------- placeholder block ---------------- */
   function phBlock(it, ratio) {
     var sp = it.spine || {};
-    var bg = sp.bg || "#efece4", fg = sp.fg || "#ffffff";
+    var bg = sp.bg || "#efece4";
     return '<div class="ph ' + ratio + '" style="background:' + bg + '">' +
       '<img class="ph-img" src="' + coverSrc(it.no) + '" alt="" loading="lazy" onerror="this.style.display=\'none\'" />' +
-      '<span class="lbl" style="color:' + fg + '">MAY · No.' + it.no + "</span></div>";
+      "</div>";
   }
 
   /* ---------------- HOME ---------------- */
@@ -679,7 +667,6 @@
         '<section class="hero"><div class="hero-inner">' +
           '<div class="hero-img" data-go="no-00">' +
             '<img class="ph-img" src="' + coverSrc("00") + '" alt="" onerror="this.style.display=\'none\'" />' +
-            '<span class="lbl">MAY · No.00</span>' +
           "</div>" +
           '<div class="text">' +
             '<p class="kicker" data-go="no-00">' + esc(lang === "en" ? PREFACE.kicker_en : PREFACE.kicker_zh) + "</p>" +
