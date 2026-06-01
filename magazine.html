@@ -956,12 +956,26 @@
     if (e.key === "Escape") { overlay.classList.remove("open"); closeModal(); }
     if ((e.metaKey || e.ctrlKey) && e.key === "k") { e.preventDefault(); overlay.classList.add("open"); setTimeout(function () { document.getElementById("searchInput").focus(); }, 50); }
   });
-  // reading progress
+  // reading progress + scroll-spy nav highlight
   var fill = document.getElementById("readFill");
-  window.addEventListener("scroll", function () {
+  var navEl = document.querySelector("nav.primary");
+  var spyTicking = false;
+  function onScroll() {
+    spyTicking = false;
     var d = document.documentElement;
     var pct = d.scrollTop / (d.scrollHeight - d.clientHeight) * 100;
     fill.style.width = Math.min(100, Math.max(0, pct)) + "%";
+    // scroll-spy: only on home view
+    if (home.hidden) return;
+    var refLine = (navEl ? navEl.getBoundingClientRect().bottom : 150) + 8;
+    var cur = null;
+    document.querySelectorAll("section.feed[id^='sec-']").forEach(function (s) {
+      if (s.getBoundingClientRect().top <= refLine) cur = s.id.slice(4);
+    });
+    highlightNav(cur);
+  }
+  window.addEventListener("scroll", function () {
+    if (!spyTicking) { spyTicking = true; requestAnimationFrame(onScroll); }
   }, { passive: true });
   window.addEventListener("hashchange", route);
 
