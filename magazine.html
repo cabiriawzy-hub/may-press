@@ -294,6 +294,8 @@
     font-family: var(--cn-display); font-size: 19px; line-height: 1.85; color: var(--ink-2);
   }
   .article-body p { margin: 0 0 1.4em; text-wrap: pretty; }
+  .article-body .xref { color: var(--accent); border-bottom: 1px solid var(--accent); cursor: pointer; white-space: nowrap; }
+  .article-body .xref:hover { opacity: .7; }
   .article-body p.first::first-letter {
     font-family: var(--display); font-size: 4.4em; line-height: 0.82;
     float: left; padding: 0.06em 0.1em 0 0; font-weight: 600; color: var(--ink);
@@ -641,7 +643,17 @@
       return '<span class="math">' + e + "</span>";
     });
   }
-  function para(text) { return "<p>" + mathify(esc(text)) + "</p>"; }
+  // Linkify cross-references like 「（见 No.08）」 / 「(see No. 08)」 into clickable
+  // anchors that jump to the referenced chapter. Runs on already-escaped text.
+  function linkify(escaped) {
+    return escaped.replace(/([（(]\s*(?:见|see)\s*)(No\.?\s*)(\d{1,2})(\s*[）)])/gi, function (whole, pre, noWord, num, post) {
+      var id = "no-" + ("0" + num).slice(-2);
+      if (!ITEMS.some(function (it) { return it.id === id; })) return whole; // unknown chapter — leave as text
+      return pre + '<a class="xref" data-go="' + id + '">' + noWord + ("0" + num).slice(-2) + "</a>" + post;
+    });
+  }
+  function fmt(text) { return linkify(mathify(esc(text))); }
+  function para(text) { return "<p>" + fmt(text) + "</p>"; }
   function metaLine(it) {
     return [esc(L(it, "author")), esc(it.date), it.minutes + " " + UI.minutes[lang]].join("  ·  ");
   }
@@ -734,7 +746,7 @@
     var p = PREFACE, sp = { no: "00", bg: "#0e1430", fg: "#E0B24A", drop: "#5163D6", accent: "#d62b1f" };
     var body = (lang === "en" ? p.body_en : p.body_zh) || p.body_zh || [];
     var bodyHtml = body.map(function (t, i) {
-      return "<p" + (i === 0 ? ' class="first"' : "") + ">" + mathify(esc(t)) + "</p>";
+      return "<p" + (i === 0 ? ' class="first"' : "") + ">" + fmt(t) + "</p>";
     }).join("");
     var srcs = (p.sources || []).map(function (s) {
       return '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.label) + "</a></li>";
@@ -761,7 +773,7 @@
     var pull = L(it, "pull");
     var bodyHtml = "";
     for (var i = 0; i < body.length; i++) {
-      bodyHtml += "<p" + (i === 0 ? ' class="first"' : "") + ">" + mathify(esc(body[i])) + "</p>";
+      bodyHtml += "<p" + (i === 0 ? ' class="first"' : "") + ">" + fmt(body[i]) + "</p>";
     }
     var srcs = (it.sources || []).map(function (s) {
       return '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.label) + "</a></li>";
