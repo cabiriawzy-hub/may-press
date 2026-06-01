@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>May & Press — 2026 年 5 月号</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --topbar-height: 92px;
+    --black: #000000;
+    --ink: #111111;
+    --ink-2: #333333;
+    --rule: #e6e6e6;
+    --rule-2: #cccccc;
+    --paper: #ffffff;
+    --muted: #6b6b6b;
+    --muted-dk: #b3b3b3;
+    --accent: #d62b1f;
+    --blue: #6b8aa5;
+    --blue-hover: #54748f;
+    --sans: "Neue Haas Grotesk Text Pro", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+    --serif: "EB Garamond", "Adobe Caslon Pro", "Noto Serif SC", "Songti SC", Georgia, serif;
+    --display: "Libre Caslon Display", "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+    --text: "Libre Caslon Text", "Noto Serif SC", "Songti SC", "EB Garamond", Georgia, serif;
+    --cn-display: "Noto Serif SC", "Songti SC", "STSong", "Libre Caslon Display", Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+  body {
+    font-family: var(--text);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  [hidden] { display: none !important; }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    background: var(--paper); color: var(--ink);
+    padding: 18px 40px;
+    position: sticky; top: 0; z-index: 50;
+    border-bottom: 1px solid var(--rule);
+  }
+  .topbar-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+  .topbar .wm {
+    grid-column: 2;
+    font-family: var(--display);
+    font-size: 38px; line-height: 1; letter-spacing: -0.005em;
+    text-align: center; color: var(--ink); margin: 0; cursor: pointer;
+  }
+  .topbar .wm .amp { color: var(--ink); font-family: var(--serif); font-style: italic; margin: 0 -0.03em; }
+  .topbar .wm .the {
+    display: block;
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.32em; font-weight: 400;
+    margin-bottom: 6px; color: var(--muted);
+  }
+  .topbar .right {
+    grid-column: 3;
+    display: flex; justify-content: flex-end; align-items: center; gap: 26px;
+    font-family: var(--sans); font-size: 14px;
+  }
+  .topbar .subscribe {
+    background: var(--blue); color: #fff; border: 0;
+    padding: 6px 12px; border-radius: 2px;
+    font-family: var(--sans); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.04em; cursor: pointer;
+  }
+  .topbar .subscribe:hover { background: var(--blue-hover); }
+  .topbar .lang-toggle {
+    background: transparent; color: var(--ink);
+    border: 1px solid var(--rule-2);
+    padding: 5px 9px; border-radius: 2px;
+    font-family: var(--sans); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.08em; cursor: pointer; min-width: 36px;
+  }
+  .topbar .lang-toggle:hover { border-color: var(--ink); color: var(--accent); }
+  .topbar .search-btn { background: transparent; border: 0; color: var(--ink); cursor: pointer; padding: 6px; }
+  .topbar .search-btn:hover { color: var(--accent); }
+  .topbar .search-btn svg { width: 18px; height: 18px; display: block; }
+
+  /* ---------- Sticky nav ---------- */
+  nav.primary {
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    position: sticky; top: var(--topbar-height); z-index: 40;
+  }
+  nav.primary .inner {
+    display: flex; justify-content: center; align-items: center;
+    gap: 38px; padding: 22px 40px;
+    font-family: var(--sans); font-size: 15px; font-weight: 500;
+    color: var(--ink);
+    overflow-x: auto; scrollbar-width: none;
+  }
+  nav.primary .inner::-webkit-scrollbar { display: none; }
+  nav.primary a { color: var(--ink); white-space: nowrap; padding: 4px 0; cursor: pointer; }
+  nav.primary a:hover { color: var(--accent); }
+  nav.primary a.current { color: var(--accent); border-bottom: 1.5px solid var(--accent); }
+
+  /* ---------- Hero · 导读 ---------- */
+  .hero {
+    background: var(--paper); color: var(--ink);
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    max-width: 1500px; margin: 0 auto;
+    min-height: 540px;
+  }
+  .hero .text {
+    padding: 80px 80px 80px 64px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .hero .text h1, .hero .text .dek, .hero .text .kicker { cursor: pointer; }
+  .hero .text h1:hover { color: var(--accent); }
+  .hero .kicker {
+    font-family: var(--sans); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 22px;
+  }
+  .hero h1 {
+    font-family: var(--cn-display); font-weight: 600;
+    font-size: clamp(40px, 4.4vw, 66px); line-height: 1.1;
+    letter-spacing: 0.005em; margin: 0 0 26px; color: var(--ink);
+    text-wrap: pretty;
+  }
+  .hero .dek {
+    font-family: var(--cn-display); font-weight: 400;
+    font-size: 20px; line-height: 1.7; color: var(--ink-2);
+    margin: 0 0 34px; max-width: 600px;
+  }
+  .hero .cta {
+    font-family: var(--sans); font-size: 13px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink);
+    cursor: pointer; align-self: flex-start;
+    border-bottom: 1.5px solid var(--accent); padding-bottom: 3px;
+  }
+  .hero .cta:hover { color: var(--accent); }
+  /* hero side: 导读 cover image, fills the right half */
+  .hero .hero-img {
+    position: relative; overflow: hidden; background: #0e1430; cursor: pointer; min-height: 540px;
+  }
+  .hero .hero-img .ph-img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center; z-index: 1;
+  }
+  .hero .hero-img .lbl {
+    position: absolute; left: 18px; bottom: 16px; z-index: 2;
+    font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 10px;
+    letter-spacing: 0.08em; color: #fff; padding: 5px 9px;
+    background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.18);
+  }
+
+  /* ---------- Sections ---------- */
+  section.feed { padding: 72px 40px 56px; max-width: 1500px; margin: 0 auto; }
+  section.feed .section-title {
+    text-align: center; font-family: var(--cn-display); font-weight: 600;
+    font-size: clamp(30px, 2.6vw, 40px); letter-spacing: 0.06em;
+    margin: 0 0 12px; color: var(--ink);
+  }
+  section.feed .section-sub {
+    text-align: center; font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.32em; color: var(--muted); margin: 0 0 50px; text-transform: uppercase;
+  }
+  section.feed .section-sub::before, section.feed .section-sub::after {
+    content: ""; display: inline-block; width: 36px; height: 1px;
+    background: var(--rule-2); vertical-align: middle; margin: 0 14px;
+  }
+
+  /* featured editorial split */
+  .featured { padding: 16px 0 64px; }
+  .featured-inner {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center;
+  }
+  .featured.flip .text { order: 2; }
+  .featured.flip .image { order: 1; }
+  .featured .text { padding: 0 8px; }
+  .featured.center .text { text-align: center; }
+  .featured .text .kicker {
+    font-family: var(--sans); font-size: 12px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin: 0 0 22px;
+  }
+  .featured .text h2 {
+    font-family: var(--cn-display); font-weight: 600;
+    font-size: clamp(30px, 3vw, 48px); line-height: 1.18; letter-spacing: 0.005em;
+    margin: 0 0 24px; color: var(--ink); text-wrap: pretty; cursor: pointer;
+  }
+  .featured .text h2:hover { color: var(--accent); }
+  .featured .text .dek {
+    font-family: var(--cn-display); font-weight: 400; font-size: 19px; line-height: 1.7;
+    color: var(--ink-2); max-width: 560px; margin: 0 0 26px; text-wrap: pretty;
+  }
+  .featured.center .text .dek { margin-left: auto; margin-right: auto; }
+  .featured .text .meta {
+    font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  /* image placeholder (per-chapter colored, image covers it) */
+  .ph {
+    position: relative; width: 100%; overflow: hidden; background: #efece4;
+  }
+  .ph.r43 { aspect-ratio: 4 / 3; }
+  .ph.r11 { aspect-ratio: 1 / 1; }
+  .ph::before {
+    content: ""; position: absolute; inset: 0; z-index: 0;
+    background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.10) 0 1px, transparent 1px 11px);
+    mix-blend-mode: overlay;
+  }
+  .ph .ph-img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center; z-index: 1;
+  }
+  .ph .lbl {
+    position: absolute; left: 14px; bottom: 12px; z-index: 2;
+    font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 10px;
+    letter-spacing: 0.08em; padding: 4px 8px;
+    background: rgba(0,0,0,0.42); border: 1px solid rgba(255,255,255,0.18);
+  }
+
+  /* card grid */
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid > .card { padding: 0 28px; border-right: 1px solid var(--rule); min-width: 0; }
+  .grid > .card:last-child { border-right: 0; }
+  .card .ph { margin-bottom: 20px; }
+  .card .kicker {
+    font-family: var(--sans); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px;
+  }
+  .card h3 {
+    font-family: var(--cn-display); font-weight: 600; font-size: 23px; line-height: 1.3;
+    letter-spacing: 0.005em; margin: 0 0 13px; color: var(--ink); text-wrap: pretty; cursor: pointer;
+  }
+  .card h3:hover { color: var(--accent); }
+  .card .dek {
+    font-family: var(--cn-display); font-weight: 400; font-size: 15px; line-height: 1.7;
+    color: var(--ink-2); margin: 0 0 12px;
+  }
+  .card .meta {
+    font-family: var(--sans); font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--black); color: #b3b3b3; padding: 56px 40px 40px; font-family: var(--sans); }
+  .foot-inner { max-width: 1440px; margin: 0 auto; }
+  .foot-mast { text-align: center; padding-bottom: 36px; border-bottom: 1px solid #333; }
+  .foot-mast .wm { font-family: var(--display); font-size: 36px; color: #fff; line-height: 1; margin: 0; cursor: pointer; }
+  .foot-mast .wm .the {
+    display: block; font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.32em; margin-bottom: 6px; color: #fff; font-weight: 400;
+  }
+  .foot-mast .wm .amp { font-family: var(--serif); font-style: italic; color: #fff; margin: 0 -0.03em; }
+  .foot-grid { display: flex; justify-content: center; gap: 90px; padding: 40px 0; border-bottom: 1px solid #333; }
+  .foot-col { min-width: 120px; }
+  .foot-col h4 { font-family: var(--cn-display); font-weight: 500; font-size: 16px; letter-spacing: 0.1em; color: #fff; margin: 0 0 22px; }
+  .foot-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .foot-col a { font-family: var(--sans); font-size: 15px; color: #b3b3b3; font-weight: 400; cursor: pointer; }
+  .foot-col a:hover { color: #fff; }
+  .foot-bottom { padding-top: 28px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+  .foot-copy { font-family: var(--sans); font-size: 13px; color: #888; line-height: 1.6; max-width: 920px; }
+  .foot-copy em { font-style: italic; }
+  .socials { display: flex; gap: 22px; }
+  .socials a { color: #fff; cursor: pointer; }
+  .socials a:hover { color: var(--blue); }
+  .socials svg { width: 20px; height: 20px; display: block; }
+
+  /* ---------- Reading view ---------- */
+  .article-head { max-width: 800px; margin: 0 auto; padding: 64px 40px 28px; text-align: center; }
+  .article-head .back {
+    display: inline-block; margin-bottom: 30px;
+    font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); cursor: pointer;
+  }
+  .article-head .back:hover { color: var(--accent); }
+  .article-head .kicker {
+    font-family: var(--sans); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin: 0 0 22px;
+  }
+  .article-head h1 {
+    font-family: var(--cn-display); font-weight: 600;
+    font-size: clamp(36px, 4.5vw, 62px); line-height: 1.15; letter-spacing: 0.005em;
+    margin: 0 0 24px; color: var(--ink); text-wrap: balance;
+  }
+  .article-head .dek {
+    font-family: var(--cn-display); font-weight: 400; font-style: italic;
+    font-size: 21px; line-height: 1.55; color: var(--ink-2);
+    margin: 0 auto 28px; max-width: 660px; text-wrap: pretty;
+  }
+  .article-head .meta {
+    font-family: var(--sans); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;
+  }
+  .article-head .meta .sep { color: var(--rule-2); }
+  .article-hero-img { max-width: 1100px; margin: 8px auto 0; padding: 0 40px; }
+  .article-body {
+    max-width: 680px; margin: 0 auto; padding: 52px 28px 60px;
+    font-family: var(--cn-display); font-size: 19px; line-height: 1.85; color: var(--ink-2);
+  }
+  .article-body p { margin: 0 0 1.4em; text-wrap: pretty; }
+  .article-body p.first::first-letter {
+    font-family: var(--display); font-size: 4.4em; line-height: 0.82;
+    float: left; padding: 0.06em 0.1em 0 0; font-weight: 600; color: var(--ink);
+  }
+  .article-body .math { font-family: "Libre Caslon Text", Georgia, serif; font-style: italic; white-space: nowrap; }
+  .article-body .math sup, .article-body .math sub { font-style: italic; }
+  .article-body .end-mark {
+    text-align: center; margin: 40px 0 0; font-family: var(--display);
+    font-style: italic; font-size: 20px; letter-spacing: 0.4em;
+  }
+  .article-sources { margin: 52px 0 0; padding: 26px 0 0; border-top: 1px solid var(--rule); }
+  .article-sources h4 {
+    font-family: var(--sans); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px;
+  }
+  .article-sources ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px;
+    font-family: var(--sans); font-size: 14px; line-height: 1.55; }
+  .article-sources a { color: var(--ink-2); border-bottom: 1px solid var(--rule-2); word-break: break-all; }
+  .article-sources a:hover { color: var(--accent); border-color: var(--accent); }
+  /* prev / next */
+  .prevnext { max-width: 800px; margin: 0 auto; padding: 8px 40px 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .prevnext a { display: block; cursor: pointer; padding: 24px 0; }
+  .prevnext .pn-lab { font-family: var(--sans); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+  .prevnext .pn-title { font-family: var(--cn-display); font-weight: 600; font-size: 18px; line-height: 1.35; color: var(--ink); }
+  .prevnext a:hover .pn-title { color: var(--accent); }
+  .prevnext .next { text-align: right; border-left: 1px solid var(--rule); padding-left: 24px; }
+  .prevnext .prev { padding-right: 24px; }
+  .readmore { padding: 64px 40px 80px; border-top: 1px solid var(--rule); }
+  .readmore .rm-title {
+    text-align: center; font-family: var(--display); font-weight: 400;
+    font-size: clamp(30px, 3vw, 44px); letter-spacing: 0.16em; text-transform: uppercase;
+    margin: 0 0 50px; color: var(--ink);
+  }
+  .readmore .rm-title em { font-style: italic; font-family: var(--serif); color: var(--accent); margin: 0 0.04em; }
+  .readmore .grid { max-width: 1440px; margin: 0 auto; }
+
+  /* ---------- Reading bar ---------- */
+  .reading-bar { position: fixed; left: 0; right: 0; top: 0; height: 2px; z-index: 60; pointer-events: none; }
+  .reading-bar .fill { height: 100%; background: var(--blue); width: 0%; transition: width .1s linear; }
+
+  /* ---------- Search overlay ---------- */
+  .search-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(2px);
+    display: none; z-index: 70; align-items: flex-start; justify-content: center;
+  }
+  .search-overlay.open { display: flex; }
+  .search-panel { margin-top: 12vh; width: min(720px, 90vw); background: #fff; padding: 32px; }
+  .search-panel .lab {
+    font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 16px;
+  }
+  .search-panel input {
+    width: 100%; border: 0; border-bottom: 1px solid var(--ink); padding: 14px 0;
+    font-family: var(--cn-display); font-size: 30px; background: transparent; outline: none;
+  }
+  .search-results { margin-top: 20px; max-height: 46vh; overflow-y: auto; }
+  .search-results .sr {
+    display: block; padding: 12px 0; border-bottom: 1px solid var(--rule); cursor: pointer;
+  }
+  .search-results .sr .sr-k { font-family: var(--sans); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+  .search-results .sr .sr-t { font-family: var(--cn-display); font-size: 18px; color: var(--ink); margin-top: 4px; }
+  .search-results .sr:hover .sr-t { color: var(--accent); }
+  .search-results .sr-empty { font-family: var(--sans); font-size: 14px; color: var(--muted); padding: 16px 0; }
+
+  /* ---------- About / Contact modal ---------- */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.72); backdrop-filter: blur(2px);
+    display: none; z-index: 80; align-items: flex-start; justify-content: center;
+    padding: 24px; overflow-y: auto;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-panel {
+    position: relative; margin: 8vh auto; width: min(640px, 92vw);
+    background: var(--paper); padding: 56px 56px 48px;
+    border-top: 3px solid var(--ink);
+  }
+  .modal-close {
+    position: absolute; top: 18px; right: 20px;
+    background: transparent; border: 0; font-size: 30px; line-height: 1;
+    color: var(--muted); cursor: pointer; font-family: var(--sans);
+  }
+  .modal-close:hover { color: var(--accent); }
+  .modal-body .m-kicker {
+    font-family: var(--sans); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin: 0 0 18px;
+  }
+  .modal-body h3 {
+    font-family: var(--cn-display); font-weight: 600;
+    font-size: clamp(24px, 2.4vw, 30px); line-height: 1.3; color: var(--ink);
+    margin: 0 0 18px; text-wrap: pretty;
+  }
+  .modal-body .m-q {
+    font-family: var(--cn-display); font-weight: 600; font-size: 18px;
+    color: var(--ink); margin: 26px 0 10px;
+  }
+  .modal-body p {
+    font-family: var(--cn-display); font-size: 16px; line-height: 1.8;
+    color: var(--ink-2); margin: 0 0 14px; text-wrap: pretty;
+  }
+  .modal-body .m-link {
+    color: var(--accent); border-bottom: 1px solid var(--accent);
+    font-weight: 600; white-space: nowrap;
+  }
+  .modal-body .m-link:hover { opacity: .7; }
+  .modal-body .m-contact {
+    font-family: var(--sans); font-size: 15px; line-height: 1.7; color: var(--ink-2);
+    margin: 0 0 24px;
+  }
+  .modal-body .m-contact b { color: var(--ink); font-weight: 600; }
+  .modal-body .m-qr {
+    display: block; width: 200px; max-width: 60%; margin: 0 auto;
+    border: 1px solid var(--rule);
+  }
+  .modal-body .m-qr-cap {
+    text-align: center; font-family: var(--sans); font-size: 12px;
+    color: var(--muted); margin: 12px 0 0;
+  }
+  .modal-body .m-qr-block { margin: 22px 0 4px; }
+  .modal-body .m-qr-block + .m-qr-block { margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .modal-body .m-qr-block .m-qr { margin-bottom: 0; }
+  .modal-body .m-note {
+    font-family: var(--cn-display); font-size: 15px; line-height: 1.75;
+    color: var(--ink-2); margin: 4px 0 0; text-align: center;
+  }
+  .modal-body .m-note b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1100px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero .text { padding: 56px 32px; order: 1; }
+    .hero .hero-img { min-height: 320px; order: 2; }
+    .featured-inner { grid-template-columns: 1fr; gap: 32px; }
+    .featured.flip .text { order: 1; } .featured.flip .image { order: 2; }
+    .grid, .grid.cols-3, .grid.cols-2 { grid-template-columns: repeat(2, 1fr); gap: 40px 0; }
+    .grid > .card { padding: 0 20px; }
+    .grid > .card:nth-child(even) { border-right: 0; }
+    .foot-grid { flex-wrap: wrap; gap: 40px 60px; }
+  }
+  @media (max-width: 620px) {
+    :root { --topbar-height: 124px; }
+    .topbar { padding: 16px 20px; }
+    .topbar-inner { grid-template-columns: 1fr; gap: 12px; }
+    .topbar .wm { grid-column: 1; font-size: 28px; }
+    .topbar .right { grid-column: 1; justify-content: center; gap: 18px; font-size: 13px; }
+    nav.primary .inner { justify-content: flex-start; gap: 22px; font-size: 14px; padding: 16px 20px; }
+    section.feed { padding: 48px 20px; }
+    .hero h1 { font-size: 38px; }
+    .grid, .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; gap: 36px; }
+    .grid > .card { padding: 0; border-right: 0; }
+    .article-head { padding: 44px 20px 24px; }
+    .article-body { padding: 40px 20px 48px; font-size: 18px; }
+    .article-hero-img { padding: 0 20px; }
+    .prevnext { padding: 0 20px; }
+    .readmore { padding: 56px 20px; }
+    .foot-grid { flex-direction: column; align-items: center; text-align: center; gap: 28px; }
+    .foot-bottom { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="reading-bar"><div class="fill" id="readFill"></div></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <h1 class="wm" id="masthead">
+      <span class="the" data-ui="month">AI 慢读 · MAY 2026</span>
+      May<span class="amp">&amp;</span>Press
+    </h1>
+    <div class="right">
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Toggle language">EN</button>
+      <button class="subscribe" type="button" data-ui="subscribe" data-modal="subscribe">订阅</button>
+      <button class="search-btn" id="openSearch" aria-label="搜索">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="primary"><div class="inner" id="primaryNav"></div></nav>
+
+<main id="home"></main>
+<main id="reader" hidden></main>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-mast">
+      <p class="wm" id="footMast">
+        <span class="the" data-ui="est">AI 慢读 · 创刊于 2026</span>
+        May<span class="amp">&amp;</span>Press
+      </p>
+    </div>
+    <div class="foot-grid" id="footGrid"></div>
+    <div class="foot-bottom">
+      <p class="foot-copy" data-ui="copy">© 2026 <em>AI 慢读</em> 保留所有权利。AI 慢读是一份每月一期的 AI 行业档案刊物。内容由多模型协作撰写、@Zhiyi Wang 审校。</p>
+      <div class="socials" aria-label="social">
+        <a href="https://x.com/ZoeyWangff" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3.2l-7 8 8.2 10h-6.4l-5-6.6L4.7 21H1.5l7.5-8.6L1.2 3h6.5l4.6 6.1L17.5 3zm-1.1 16h1.8L7.7 5H5.8l10.6 14z"/></svg></a>
+        <a href="https://github.com/cabiriawzy-hub" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.72-2.78.62-3.37-1.36-3.37-1.36-.46-1.18-1.11-1.49-1.11-1.49-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05.8-.23 1.65-.34 2.5-.34s1.7.11 2.5.34c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.8-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49C19.14 20.61 22 16.78 22 12.25 22 6.58 17.52 2 12 2z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true">
+  <div class="search-panel">
+    <p class="lab" data-ui="searchLabel">搜索本期 · 24 篇</p>
+    <input id="searchInput" type="text" autocomplete="off" />
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
+  <div class="modal-panel">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- Single source of truth: data.js (BRIEFING_ITEMS / CATEGORIES / PREFACE_FULL). -->
+<script>document.write('<scr'+'ipt src="data.js?v='+Date.now()+'"></scr'+'ipt>')</script>
+<script>
+(function () {
+  "use strict";
+  var ITEMS   = window.BRIEFING_ITEMS || [];
+  var CATS    = window.CATEGORIES || {};
+  var PREFACE = window.PREFACE_FULL || null;
+  var COVER_V = "20260531";                 // bump this if you overwrite covers and don't see the new image
+  var ORDER   = ["essay", "product", "research", "industry", "open-source"];
+  // Dropcap color per chapter — sampled from each cover's dominant color
+  // (grey/low-saturation covers fall back to that chapter's spine.drop).
+  var DROP_COLORS = {
+    "no-00": "#0358EF", "no-01": "#5163D6", "no-02": "#565C9E", "no-03": "#F43909",
+    "no-04": "#9C5524", "no-05": "#185DB7", "no-06": "#B74924", "no-07": "#0D63B3",
+    "no-08": "#7194A3", "no-09": "#C77AAA", "no-10": "#199E71", "no-11": "#0572F3",
+    "no-12": "#5C95CE", "no-13": "#614F2C", "no-14": "#9C58C4", "no-15": "#F31307",
+    "no-16": "#D25A78", "no-17": "#1D8B54", "no-18": "#FD5F0A", "no-19": "#9E0815",
+    "no-20": "#5C7A1E", "no-21": "#F75422", "no-22": "#46AE68", "no-23": "#2C7196",
+    "no-24": "#E41C29"
+  };
+  var TAGLINE = {
+    essay: "The Essays", product: "The Releases", research: "The Findings",
+    industry: "The Business", "open-source": "The Commons"
+  };
+  // Static chrome strings (data.js carries no UI dictionary).
+  var UI = {
+    month:       { zh: "AI 慢读 · 2026 年 5 月号", en: "AI Slow Read · May 2026" },
+    est:         { zh: "AI 慢读 · 创刊于 2026", en: "AI Slow Read · Since 2026" },
+    subscribe:   { zh: "订阅", en: "Subscribe" },
+    search:      { zh: "搜索", en: "Search" },
+    searchLabel: { zh: "搜索本期 · 24 篇", en: "Search this issue · 24 pieces" },
+    searchPh:    { zh: "试试标题、公司或关键词…", en: "Try a title, company, or keyword…" },
+    cover:       { zh: "封面文章", en: "Cover Story" },
+    minutes:     { zh: "分钟", en: "min read" },
+    read:        { zh: "阅读导读", en: "Read the letter" },
+    readmore:    { zh: ["更多", "阅读"], en: ["Read", "More"] },
+    sources:     { zh: "信息来源", en: "Sources" },
+    prev:        { zh: "上一篇", en: "Previous" },
+    next:        { zh: "下一篇", en: "Next" },
+    copy:        { zh: '© 2026 <em>AI 慢读</em> 保留所有权利。AI 慢读是一份每月一期的 AI 行业档案刊物。内容由多模型协作撰写、@Zhiyi Wang 审校。',
+                   en: '© 2026 <em>AI Slow Read</em>. All rights reserved. AI Slow Read is a monthly archive of the AI industry, written with multiple models and reviewed by @Zhiyi Wang.' },
+    foot: {
+      cols: {
+        zh: ["栏目", "阅读", "关于", "订阅"], en: ["Sections", "Read", "About", "Subscribe"]
+      }
+    }
+  };
+  // About / Contact modal content
+  var MODALS = {
+    about: {
+      kicker: { zh: "关于本刊", en: "About" },
+      html: {
+        zh:
+          '<p class="m-kicker">关于本刊</p>' +
+          '<p class="m-q">为什么想到做这个？</p>' +
+          "<p>各种 AI 自动推送日报、耸人听闻的营销号太多了，追热点永远会慢半拍，鲜有深度思考；因此每隔一段时间把视野拉远到整个 AI 行业，或许能帮我们客观冷静地看待当前的发展与思潮。</p>" +
+          "<p>这份「月刊」不是新闻摘要，更像一本悉心编辑过的专题杂志。选题与原始信源由 @Zhiyi Wang 和 AI 共同筛选把控，力求每一章节都真实可靠。</p>" +
+          '<p class="m-q">原始信源</p>' +
+          '<p>每期内容的全部信息来源与采编方法已公开，可逐条核查：<a class="m-link" href="https://bytedance.larkoffice.com/docx/N3MXdfiFjo2e82xaNN4cpfhEnng" target="_blank" rel="noopener">信息来源与采编方法 &rarr;</a></p>',
+        en:
+          '<p class="m-kicker">About</p>' +
+          '<p class="m-q">Why make this?</p>' +
+          "<p>There are too many auto-pushed AI dailies and sensational marketing accounts; chasing hot takes is always half a beat behind, and seldom offers real reflection. Stepping back to look at the whole AI industry every once in a while may help us see the current developments and currents of thought more calmly and objectively.</p>" +
+          "<p>This monthly is not a news digest — it's more like a carefully edited themed magazine. Topics and primary sources are curated by @Zhiyi Wang together with AI, striving to keep every chapter truthful and reliable.</p>" +
+          '<p class="m-q">Primary Sources</p>' +
+          '<p>The full source list and editorial method behind every issue are public and checkable line by line: <a class="m-link" href="https://bytedance.larkoffice.com/docx/N3MXdfiFjo2e82xaNN4cpfhEnng" target="_blank" rel="noopener">Sources &amp; Method &rarr;</a></p>'
+      }
+    },
+    contact: {
+      kicker: { zh: "投稿与联系", en: "Contact" },
+      html: {
+        zh:
+          '<p class="m-kicker">投稿与联系</p>' +
+          '<p class="m-contact">编辑部 <b>@Zhiyi Wang</b><br/>微信号：<b>zy_cabiria</b></p>' +
+          '<img class="m-qr" src="covers/wechat-qr.png" alt="微信二维码" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'none\'" />' +
+          '<p class="m-qr-cap">扫二维码，添加我为朋友。</p>',
+        en:
+          '<p class="m-kicker">Contact</p>' +
+          '<p class="m-contact">Editorial desk <b>@Zhiyi Wang</b><br/>WeChat: <b>zy_cabiria</b></p>' +
+          '<img class="m-qr" src="covers/wechat-qr.png" alt="WeChat QR" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'none\'" />' +
+          '<p class="m-qr-cap">Scan the QR code to add me on WeChat.</p>'
+      }
+    },
+    subscribe: {
+      kicker: { zh: "订阅", en: "Subscribe" },
+      html: {
+        zh:
+          '<p class="m-kicker">订阅</p>' +
+          '<p class="m-q">怎么订阅？</p>' +
+          "<p>本刊每月一期。可通过以下方式同步更新：</p>" +
+          '<p class="m-contact">加读者群（微信）：<b>@Zhiyi Wang</b> · 微信号 <b>zy_cabiria</b>，备注「订阅」拉群</p>' +
+          '<div class="m-qr-block" onerror="this.style.display=\'none\'"><img class="m-qr" src="covers/wechat-qr.png" alt="微信二维码" onerror="this.parentElement.style.display=\'none\'" /><p class="m-qr-cap">扫二维码，备注「订阅」加我。</p></div>' +
+          '<p class="m-note" style="margin-top:26px">字节内部同学，可在飞书搜索「<b>AI 慢读月刊｜订阅群</b>」，或扫码加入，即可最早收到当月期刊推送。</p>' +
+          '<div class="m-qr-block" onerror="this.style.display=\'none\'"><img class="m-qr" src="covers/lark-group-qr.png" alt="飞书订阅群二维码" onerror="this.parentElement.style.display=\'none\'" /><p class="m-qr-cap">仅限企业内部成员加入 · 该二维码永久有效</p></div>',
+        en:
+          '<p class="m-kicker">Subscribe</p>' +
+          '<p class="m-q">How to subscribe</p>' +
+          "<p>One issue a month. Follow along via:</p>" +
+          '<p class="m-contact">Reader group (WeChat): <b>@Zhiyi Wang</b> · WeChat <b>zy_cabiria</b>, note "subscribe" to be added</p>' +
+          '<div class="m-qr-block"><img class="m-qr" src="covers/wechat-qr.png" alt="WeChat QR" onerror="this.parentElement.style.display=\'none\'" /><p class="m-qr-cap">Scan and note "subscribe" to be added.</p></div>' +
+          '<p class="m-note" style="margin-top:26px">ByteDance colleagues: search "<b>AI 慢读月刊｜订阅群</b>" in Lark, or scan to join, to get each issue first.</p>' +
+          '<div class="m-qr-block"><img class="m-qr" src="covers/lark-group-qr.png" alt="Lark group QR" onerror="this.parentElement.style.display=\'none\'" /><p class="m-qr-cap">Internal members only · QR code never expires</p></div>'
+      }
+    }
+  };
+
+  var lang = localStorage.getItem("mp-lang") || "zh";
+  var home = document.getElementById("home");
+  var reader = document.getElementById("reader");
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function L(o, key) { return o[key + "_" + lang] != null ? o[key + "_" + lang] : o[key + "_zh"]; }
+  function coverSrc(no) { return "covers/no-" + no + ".png?v=" + COVER_V; }
+  function catLabel(cat) { return CATS[cat] ? CATS[cat][lang] : cat; }
+
+  // Inline math: only treat $...$ as math when it carries LaTeX markers (\ ^ _ {).
+  // Currency like "$5/1M" never matches and is left untouched.
+  function mathify(escaped) {
+    return escaped.replace(/\$([^$]*(?:\\|\^|_|\{)[^$]*)\$/g, function (_, e) {
+      e = e.replace(/\\delta/g, "δ").replace(/\\Delta/g, "Δ")
+           .replace(/\\alpha/g, "α").replace(/\\beta/g, "β")
+           .replace(/\\gamma/g, "γ").replace(/\\epsilon/g, "ε").replace(/\\theta/g, "θ");
+      e = e.replace(/\^\{([^}]*)\}/g, "<sup>$1</sup>").replace(/\^(\w)/g, "<sup>$1</sup>");
+      e = e.replace(/_\{([^}]*)\}/g, "<sub>$1</sub>").replace(/_(\w)/g, "<sub>$1</sub>");
+      return '<span class="math">' + e + "</span>";
+    });
+  }
+  function para(text) { return "<p>" + mathify(esc(text)) + "</p>"; }
+  function metaLine(it) {
+    return [esc(L(it, "author")), esc(it.date), it.minutes + " " + UI.minutes[lang]].join("  ·  ");
+  }
+  function itemsByCat(cat) { return ITEMS.filter(function (it) { return it.cat === cat; }); }
+  function sectionRange(list) {
+    if (!list.length) return "";
+    var a = list[0].no, b = list[list.length - 1].no;
+    return "No." + a + (a === b ? "" : " – " + b);
+  }
+
+  /* ---------------- placeholder block ---------------- */
+  function phBlock(it, ratio) {
+    var sp = it.spine || {};
+    var bg = sp.bg || "#efece4", fg = sp.fg || "#ffffff";
+    return '<div class="ph ' + ratio + '" style="background:' + bg + '">' +
+      '<img class="ph-img" src="' + coverSrc(it.no) + '" alt="" loading="lazy" onerror="this.style.display=\'none\'" />' +
+      '<span class="lbl" style="color:' + fg + '">MAY · No.' + it.no + "</span></div>";
+  }
+
+  /* ---------------- HOME ---------------- */
+  function renderHome() {
+    var html = "";
+    // Hero — 导读
+    if (PREFACE) {
+      html +=
+        '<section class="hero"><div class="hero-inner">' +
+          '<div class="hero-img" data-go="no-00">' +
+            '<img class="ph-img" src="' + coverSrc("00") + '" alt="" onerror="this.style.display=\'none\'" />' +
+            '<span class="lbl">MAY · No.00</span>' +
+          "</div>" +
+          '<div class="text">' +
+            '<p class="kicker" data-go="no-00">' + esc(lang === "en" ? PREFACE.kicker_en : PREFACE.kicker_zh) + "</p>" +
+            '<h1 data-go="no-00">' + esc(L(PREFACE, "title")) + "</h1>" +
+            '<p class="dek" data-go="no-00">' + esc(L(PREFACE, "intro")) + "</p>" +
+            '<span class="cta" data-go="no-00">' + esc(UI.read[lang]) + " &rarr;</span>" +
+          "</div>" +
+        "</div></section>";
+    }
+    // Sections
+    ORDER.forEach(function (cat, idx) {
+      var list = itemsByCat(cat);
+      if (!list.length) return;
+      var feat = list[0], rest = list.slice(1);
+      var flip = idx % 2 === 1;
+      var isCover = cat === "essay";
+      html += '<section class="feed" id="sec-' + cat + '">';
+      html += '<h2 class="section-title">' + esc(catLabel(cat)) + "</h2>";
+      html += '<p class="section-sub">' + esc(sectionRange(list)) + " · " + esc(TAGLINE[cat]) + "</p>";
+      // featured split
+      var fk = catLabel(cat) + (isCover ? " · " + UI.cover[lang] : "");
+      html +=
+        '<div class="featured' + (flip ? " flip" : "") + '"><div class="featured-inner">' +
+          '<div class="text">' +
+            '<p class="kicker">No.' + feat.no + " · " + esc(fk) + "</p>" +
+            "<h2 data-go=\"" + feat.id + "\">" + esc(L(feat, "title")) + "</h2>" +
+            '<p class="dek">' + esc(L(feat, "pull")) + "</p>" +
+            '<p class="meta">' + metaLine(feat) + "</p>" +
+          "</div>" +
+          '<div class="image" data-go="' + feat.id + '" style="cursor:pointer">' + phBlock(feat, "r11") + "</div>" +
+        "</div></div>";
+      // grid of the rest
+      if (rest.length) {
+        var cols = rest.length >= 4 ? "" : rest.length === 3 ? " cols-3" : " cols-2";
+        html += '<div class="grid' + cols + '">';
+        rest.forEach(function (it) {
+          html +=
+            '<article class="card">' +
+              '<div data-go="' + it.id + '" style="cursor:pointer">' + phBlock(it, "r43") + "</div>" +
+              '<p class="kicker">No.' + it.no + " · " + esc(catLabel(cat)) + "</p>" +
+              "<h3 data-go=\"" + it.id + "\">" + esc(L(it, "title")) + "</h3>" +
+              '<p class="dek">' + esc(L(it, "pull")) + "</p>" +
+              '<p class="meta">' + esc(it.date) + " · " + it.minutes + " " + UI.minutes[lang] + "</p>" +
+            "</article>";
+        });
+        html += "</div>";
+      }
+      html += "</section>";
+    });
+    home.innerHTML = html;
+  }
+
+  /* ---------------- READER ---------------- */
+  function fullList() {
+    // 导读 first, then the 24 articles, for prev/next.
+    var arr = [];
+    if (PREFACE) arr.push({ id: "no-00", preface: true });
+    ITEMS.forEach(function (it) { arr.push({ id: it.id, item: it }); });
+    return arr;
+  }
+  function renderReaderPreface() {
+    var p = PREFACE, sp = { no: "00", bg: "#0e1430", fg: "#E0B24A", drop: "#5163D6", accent: "#d62b1f" };
+    var body = (lang === "en" ? p.body_en : p.body_zh) || p.body_zh || [];
+    var bodyHtml = body.map(function (t, i) {
+      return "<p" + (i === 0 ? ' class="first"' : "") + ">" + mathify(esc(t)) + "</p>";
+    }).join("");
+    var srcs = (p.sources || []).map(function (s) {
+      return '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.label) + "</a></li>";
+    }).join("");
+    var dropC = DROP_COLORS["no-00"] || sp.drop;
+    var firstStyle = "<style>#reader .article-body p.first::first-letter{color:" + dropC + "}</style>";
+    return firstStyle +
+      '<header class="article-head">' +
+        '<span class="back" data-go="home">&larr; ' + esc(lang === "en" ? "Back to issue" : "返回本期") + "</span>" +
+        '<p class="kicker">' + esc(lang === "en" ? p.kicker_en : p.kicker_zh) + "</p>" +
+        "<h1>" + esc(L(p, "title")) + "</h1>" +
+        '<p class="dek">' + esc(L(p, "intro")) + "</p>" +
+      "</header>" +
+      '<div class="article-hero-img">' + phBlock(sp, "r43") + "</div>" +
+      '<article class="article-body">' + bodyHtml +
+        '<p class="end-mark" style="color:' + sp.accent + '">· · ·</p>' +
+        '<div class="article-sources"><h4>' + esc(UI.sources[lang]) + "</h4><ul>" + srcs + "</ul></div>" +
+      "</article>";
+  }
+  function renderReaderArticle(it) {
+    var sp = it.spine || {};
+    var drop = DROP_COLORS[it.id] || sp.drop || "#111", accent = sp.accent || "#d62b1f", bg = sp.bg || "#1a1a1a", fg = sp.fg || "#fff";
+    var body = (L(it, "body")) || [];
+    var pull = L(it, "pull");
+    var bodyHtml = "";
+    for (var i = 0; i < body.length; i++) {
+      bodyHtml += "<p" + (i === 0 ? ' class="first"' : "") + ">" + mathify(esc(body[i])) + "</p>";
+    }
+    var srcs = (it.sources || []).map(function (s) {
+      return '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.label) + "</a></li>";
+    }).join("");
+    var styleTag = "<style>#reader .article-body p.first::first-letter{color:" + drop +
+      "}#reader .end-mark{color:" + accent + "}</style>";
+    var head =
+      '<header class="article-head">' +
+        '<span class="back" data-go="home">&larr; ' + esc(lang === "en" ? "Back to issue" : "返回本期") + "</span>" +
+        '<p class="kicker">No.' + it.no + " · " + esc(catLabel(it.cat)) + "</p>" +
+        "<h1>" + esc(L(it, "title")) + "</h1>" +
+        '<p class="dek">' + esc(pull) + "</p>" +
+        '<p class="meta"><span>' + esc(L(it, "author")) + '</span><span class="sep">·</span><span>' +
+          esc(it.date) + '</span><span class="sep">·</span><span>' + it.minutes + " " + UI.minutes[lang] + "</span></p>" +
+      "</header>";
+    var hero =
+      '<div class="article-hero-img">' + phBlock(it, "r43") + "</div>";
+    var bodyBlock = '<article class="article-body">' + bodyHtml +
+        '<p class="end-mark">· · ·</p>' +
+        '<div class="article-sources"><h4>' + esc(UI.sources[lang]) + "</h4><ul>" + srcs + "</ul></div>" +
+      "</article>";
+    return styleTag + head + hero + bodyBlock;
+  }
+  function renderPrevNext(curId) {
+    var fl = fullList();
+    var idx = -1;
+    for (var i = 0; i < fl.length; i++) if (fl[i].id === curId) { idx = i; break; }
+    if (idx < 0) return "";
+    var prev = idx > 0 ? fl[idx - 1] : null;
+    var next = idx < fl.length - 1 ? fl[idx + 1] : null;
+    function title(node) { return node.preface ? L(PREFACE, "title") : L(node.item, "title"); }
+    var h = '<div class="prevnext">';
+    h += prev
+      ? '<a class="prev" data-go="' + prev.id + '"><p class="pn-lab">&larr; ' + esc(UI.prev[lang]) + '</p><p class="pn-title">' + esc(title(prev)) + "</p></a>"
+      : "<span></span>";
+    h += next
+      ? '<a class="next" data-go="' + next.id + '"><p class="pn-lab">' + esc(UI.next[lang]) + ' &rarr;</p><p class="pn-title">' + esc(title(next)) + "</p></a>"
+      : "<span></span>";
+    h += "</div>";
+    return h;
+  }
+  function renderReadMore(it) {
+    var related = ITEMS.filter(function (x) { return x.cat === it.cat && x.id !== it.id; }).slice(0, 4);
+    if (!related.length) return "";
+    var cols = related.length >= 4 ? "" : related.length === 3 ? " cols-3" : " cols-2";
+    var cards = related.map(function (a) {
+      return '<article class="card">' +
+        '<div data-go="' + a.id + '" style="cursor:pointer">' + phBlock(a, "r43") + "</div>" +
+        '<p class="kicker">No.' + a.no + " · " + esc(catLabel(a.cat)) + "</p>" +
+        "<h3 data-go=\"" + a.id + "\">" + esc(L(a, "title")) + "</h3>" +
+        '<p class="dek">' + esc(L(a, "pull")) + "</p></article>";
+    }).join("");
+    var t = UI.readmore[lang];
+    return '<section class="readmore"><h2 class="rm-title">' + esc(t[0]) + " <em>" + esc(t[1]) +
+      '</em></h2><div class="grid' + cols + '">' + cards + "</div></section>";
+  }
+  function renderReader(id) {
+    var inner;
+    if (id === "no-00") {
+      inner = renderReaderPreface() + renderPrevNext("no-00");
+    } else {
+      var it = ITEMS.filter(function (x) { return x.id === id; })[0];
+      if (!it) { go("home"); return; }
+      inner = renderReaderArticle(it) + renderPrevNext(id) + renderReadMore(it);
+    }
+    reader.innerHTML = inner;
+  }
+
+  /* ---------------- chrome / nav / footer ---------------- */
+  function renderChrome() {
+    document.documentElement.lang = lang === "en" ? "en" : "zh-CN";
+    // nav
+    var nav = document.getElementById("primaryNav");
+    nav.innerHTML = ORDER.map(function (c) {
+      return '<a data-sec="' + c + '">' + esc(catLabel(c)) + "</a>";
+    }).join("");
+    // footer columns
+    var fg = document.getElementById("footGrid");
+    var colTitles = UI.foot.cols[lang];
+    var secLinks = ORDER.map(function (c) { return '<li><a data-sec="' + c + '">' + esc(catLabel(c)) + "</a></li>"; }).join("");
+    fg.innerHTML =
+      '<div class="foot-col"><h4>' + esc(colTitles[0]) + "</h4><ul>" + secLinks + "</ul></div>" +
+      '<div class="foot-col"><h4>' + esc(colTitles[1]) + "</h4><ul>" +
+        '<li><a data-go="no-00">' + esc(lang === "en" ? "Editor's letter" : "卷首导读") + "</a></li></ul></div>" +
+      '<div class="foot-col"><h4>' + esc(colTitles[2]) + "</h4><ul>" +
+        '<li><a data-modal="about">' + esc(lang === "en" ? "About" : "关于本刊") + "</a></li>" +
+        '<li><a data-modal="contact">' + esc(lang === "en" ? "Contact" : "投稿与联系") + "</a></li></ul></div>" +
+      '<div class="foot-col"><h4>' + esc(colTitles[3]) + "</h4><ul>" +
+        '<li><a data-modal="subscribe">' + esc(lang === "en" ? "How to subscribe" : "如何订阅") + "</a></li>" +
+        '<li><a href="https://cabiriawzy-hub.github.io/april-press/April%20Press.html" target="_blank" rel="noopener">' + esc(lang === "en" ? "Past issues" : "往期回顾") + "</a></li></ul></div>";
+    // static [data-ui]
+    document.querySelectorAll("[data-ui]").forEach(function (el) {
+      var k = el.getAttribute("data-ui");
+      if (k === "copy") el.innerHTML = UI.copy[lang];
+      else if (UI[k]) el.textContent = UI[k][lang];
+    });
+    document.getElementById("searchInput").setAttribute("placeholder", UI.searchPh[lang]);
+    document.getElementById("langToggle").textContent = lang === "en" ? "中" : "EN";
+    document.querySelector(".search-btn").setAttribute("aria-label", UI.search[lang]);
+  }
+  function highlightNav(cat) {
+    document.querySelectorAll("#primaryNav a").forEach(function (a) {
+      a.classList.toggle("current", a.getAttribute("data-sec") === cat);
+    });
+  }
+
+  /* ---------------- routing ---------------- */
+  function go(target) {
+    if (target === "home") { location.hash = ""; }
+    else { location.hash = "#" + target; }
+  }
+  function showHome(scrollToCat) {
+    reader.hidden = true; home.hidden = false;
+    if (scrollToCat) {
+      var el = document.getElementById("sec-" + scrollToCat);
+      if (el) { el.scrollIntoView({ behavior: "smooth", block: "start" }); highlightNav(scrollToCat); }
+    } else { highlightNav(null); window.scrollTo(0, 0); }
+  }
+  function showReader(id) {
+    renderReader(id);
+    home.hidden = true; reader.hidden = false;
+    var cat = null;
+    if (id !== "no-00") { var it = ITEMS.filter(function (x) { return x.id === id; })[0]; if (it) cat = it.cat; }
+    highlightNav(cat);
+    window.scrollTo(0, 0);
+  }
+  function route() {
+    var h = location.hash.replace(/^#/, "");
+    if (/^no-\d{2}$/.test(h)) showReader(h);
+    else showHome(null);
+  }
+
+  /* ---------------- search ---------------- */
+  function runSearch(q) {
+    var box = document.getElementById("searchResults");
+    q = (q || "").trim().toLowerCase();
+    if (!q) { box.innerHTML = ""; return; }
+    var hits = ITEMS.filter(function (it) {
+      return (L(it, "title") + " " + L(it, "pull") + " " + L(it, "author")).toLowerCase().indexOf(q) >= 0;
+    }).slice(0, 8);
+    if (!hits.length) { box.innerHTML = '<p class="sr-empty">' + (lang === "en" ? "No matches." : "没有匹配。") + "</p>"; return; }
+    box.innerHTML = hits.map(function (it) {
+      return '<a class="sr" data-go="' + it.id + '"><span class="sr-k">No.' + it.no + " · " + esc(catLabel(it.cat)) +
+        '</span><span class="sr-t">' + esc(L(it, "title")) + "</span></a>";
+    }).join("");
+  }
+
+  /* ---------------- events ---------------- */
+  function applyLang() {
+    renderChrome();
+    renderHome();
+    route();
+  }
+  document.addEventListener("click", function (e) {
+    var m = e.target.closest("[data-modal]");
+    if (m) { e.preventDefault(); openModal(m.getAttribute("data-modal")); return; }
+    var t = e.target.closest("[data-go]");
+    if (t) { e.preventDefault(); document.getElementById("searchOverlay").classList.remove("open"); go(t.getAttribute("data-go")); return; }
+    var s = e.target.closest("[data-sec]");
+    if (s) {
+      e.preventDefault();
+      var cat = s.getAttribute("data-sec");
+      var overlay = document.getElementById("searchOverlay"); overlay.classList.remove("open");
+      if (!reader.hidden) { reader.hidden = true; home.hidden = false; }
+      showHome(cat);
+      return;
+    }
+  });
+  // about / contact modal
+  var modalOverlay = document.getElementById("modalOverlay");
+  function openModal(key) {
+    var m = MODALS[key]; if (!m) return;
+    document.getElementById("modalBody").innerHTML = m.html[lang] || m.html.zh;
+    modalOverlay.classList.add("open");
+  }
+  function closeModal() { modalOverlay.classList.remove("open"); }
+  document.getElementById("modalClose").addEventListener("click", closeModal);
+  modalOverlay.addEventListener("click", function (e) { if (e.target === modalOverlay) closeModal(); });
+  document.getElementById("masthead").addEventListener("click", function () { go("home"); });
+  document.getElementById("footMast").addEventListener("click", function () { go("home"); });
+  document.getElementById("langToggle").addEventListener("click", function () {
+    lang = lang === "en" ? "zh" : "en";
+    localStorage.setItem("mp-lang", lang);
+    applyLang();
+  });
+  // search overlay
+  var overlay = document.getElementById("searchOverlay");
+  document.getElementById("openSearch").addEventListener("click", function () {
+    overlay.classList.add("open");
+    setTimeout(function () { document.getElementById("searchInput").focus(); }, 50);
+  });
+  overlay.addEventListener("click", function (e) { if (e.target === overlay) overlay.classList.remove("open"); });
+  document.getElementById("searchInput").addEventListener("input", function (e) { runSearch(e.target.value); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") { overlay.classList.remove("open"); closeModal(); }
+    if ((e.metaKey || e.ctrlKey) && e.key === "k") { e.preventDefault(); overlay.classList.add("open"); setTimeout(function () { document.getElementById("searchInput").focus(); }, 50); }
+  });
+  // reading progress
+  var fill = document.getElementById("readFill");
+  window.addEventListener("scroll", function () {
+    var d = document.documentElement;
+    var pct = d.scrollTop / (d.scrollHeight - d.clientHeight) * 100;
+    fill.style.width = Math.min(100, Math.max(0, pct)) + "%";
+  }, { passive: true });
+  window.addEventListener("hashchange", route);
+
+  // boot
+  if (!ITEMS.length) {
+    home.innerHTML = '<section class="feed"><p style="text-align:center;color:#888">data.js 未加载或为空。请在本地服务器下打开（见说明）。</p></section>';
+  } else {
+    applyLang();
+  }
+})();
+</script>
+</body>
+</html>
