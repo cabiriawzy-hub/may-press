@@ -920,6 +920,14 @@
     var h = location.hash.replace(/^#/, "");
     if (/^no-\d{2}$/.test(h)) showReader(h);
     else showHome(null);
+    trackView();
+  }
+  // GoatCounter pageview — count each hash route as its own path so per-article
+  // reads show up separately. Guarded because the script loads async.
+  function trackView() {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: location.pathname + location.hash });
+    }
   }
 
   /* ---------------- search ---------------- */
@@ -1018,5 +1026,8 @@
   }
 })();
 </script>
+<!-- GoatCounter analytics (privacy-friendly, no cookies). Dashboard: https://yizhikirby.goatcounter.com -->
+<script data-goatcounter="https://yizhikirby.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
