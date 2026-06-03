@@ -1027,7 +1027,13 @@
 })();
 </script>
 <!-- GoatCounter analytics (privacy-friendly, no cookies). Dashboard: https://yizhikirby.goatcounter.com -->
+<script>
+  // Disable GoatCounter's auto pageview; we count manually so each hash route
+  // (incl. the entry article when someone opens a #no-XX link directly) is recorded.
+  window.goatcounter = { no_onload: true };
+</script>
 <script data-goatcounter="https://yizhikirby.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+        async src="//gc.zgo.at/count.js"
+        onload="window.goatcounter&&window.goatcounter.count&&window.goatcounter.count({path:location.pathname+location.hash})"></script>
 </body>
 </html>
